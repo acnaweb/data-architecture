@@ -1,0 +1,12 @@
+@startuml
+title Streaming de Dados
+
+actor "Sensor / Evento" as source
+queue "Event Bus (Kafka)" as kafka
+component "Stream Processor"
+database "Output Sink"
+
+source --> kafka
+kafka --> "Stream Processor"
+"Stream Processor" --> "Output Sink"
+@enduml

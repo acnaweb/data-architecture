@@ -1,0 +1,12 @@
+@startuml
+title Data Lakehouse
+
+actor "Fonte de Dados" as source
+database "Raw Zone" as raw
+database "Delta Lake" as delta
+database "SQL Analytics" as analytics
+
+source --> raw
+raw --> delta : Enriquecimento com ACID
+delta --> analytics : Consulta por BI e notebooks
+@enduml

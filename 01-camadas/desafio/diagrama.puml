@@ -1,0 +1,12 @@
+@startuml
+title Arquitetura em Camadas de Dados
+
+actor "Fonte de Dados" as source
+database "Raw Layer" as raw
+database "Refined Layer" as refined
+database "Trusted Layer" as trusted
+
+source --> raw : Ingestão
+raw --> refined : Transformação
+refined --> trusted : Validação e Enriquecimento
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+title Arquitetura de AI/ML em Produção
+
+actor "Fonte de Dados" as source
+database "Feature Store" as fs
+component "Model Trainer" as train
+component "Model Serving"
+database "Monitoramento"
+
+source --> fs
+fs --> train
+train --> "Model Serving"
+"Model Serving" --> Monitoramento
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+title Data Warehouse
+
+actor "Fonte de Dados" as source
+database "Staging Area" as staging
+database "Data Warehouse" as dw
+component "ETL/ELT"
+
+source --> staging
+staging --> ETL/ELT
+ETL/ELT --> dw
+@enduml

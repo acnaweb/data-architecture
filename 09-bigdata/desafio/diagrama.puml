@@ -1,0 +1,12 @@
+@startuml
+title Arquitetura Big Data
+
+actor "Fonte de Dados" as source
+database "HDFS / Data Lake" as hdfs
+component "Job Spark"
+database "Output Table" as output
+
+source --> hdfs
+hdfs --> "Job Spark"
+"Job Spark" --> output
+@enduml

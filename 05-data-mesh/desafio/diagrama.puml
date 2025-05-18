@@ -1,0 +1,14 @@
+@startuml
+title Arquitetura Data Mesh
+
+actor "Domínio A" as A
+actor "Domínio B" as B
+component "Produto de Dados A" as dataA
+component "Produto de Dados B" as dataB
+database "Catálogo Federado" as catalog
+
+A --> dataA
+B --> dataB
+dataA --> catalog
+dataB --> catalog
+@enduml

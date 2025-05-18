@@ -1,0 +1,12 @@
+@startuml
+title Arquitetura Medallion
+
+actor "Fonte de Dados" as source
+database "Bronze" as bronze
+database "Silver" as silver
+database "Gold" as gold
+
+source --> bronze : Ingestão Raw
+bronze --> silver : Limpeza e Filtragem
+silver --> gold : Enriquecimento e Agregações
+@enduml

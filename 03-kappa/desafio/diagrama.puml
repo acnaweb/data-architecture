@@ -1,0 +1,12 @@
+@startuml
+title Arquitetura Kappa
+
+actor "Fonte de Dados" as source
+queue "Stream" as stream
+component "Engine de Stream" as stream_proc
+database "Data Lake" as lake
+
+source --> stream
+stream --> stream_proc
+stream_proc --> lake
+@enduml

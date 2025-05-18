@@ -1,0 +1,17 @@
+@startuml
+title Arquitetura Lambda
+
+actor "Fonte de Dados" as source
+queue "Stream" as stream
+database "Batch Storage" as batch
+component "Processamento Batch" as batch_proc
+component "Processamento Stream" as stream_proc
+database "Serving Layer" as serving
+
+source --> stream
+source --> batch
+stream --> stream_proc
+batch --> batch_proc
+stream_proc --> serving
+batch_proc --> serving
+@enduml
